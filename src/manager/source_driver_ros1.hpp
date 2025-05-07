@@ -396,7 +396,7 @@
      ++iter_ring_;
      ++iter_timestamp_;   
    }
-   printf("frame:%d points:%u packet:%d start time:%lf end time:%lf\n",frame.frame_index, frame.points_num, frame.packet_num, frame.points[0].timestamp, frame.points[frame.points_num - 1].timestamp) ;
+   //printf("frame:%d points:%u packet:%d start time:%lf end time:%lf\n",frame.frame_index, frame.points_num, frame.packet_num, frame.points[0].timestamp, frame.points[frame.points_num - 1].timestamp) ;
    // ros_msg.header.seq = s;
    int64_t sec = static_cast<int64_t>(frame.points[0].timestamp);  
    if (sec <= std::numeric_limits<int32_t>::max()) {
