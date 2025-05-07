@@ -102,10 +102,16 @@
    // you can chose [!demo_ptr->IsPlayEnded()] or [1] 
    // If you chose !demo_ptr->IsPlayEnded(), ROS node will end with the end of the PCAP.
    // If you select 1, the ROS node does not end with the end of the PCAP.
-   while (!demo_ptr->IsPlayEnded())
-   {
-     std::this_thread::sleep_for(std::chrono::microseconds(100));
-   }
+   //while (!demo_ptr->IsPlayEnded())
+   //{
+   //  std::this_thread::sleep_for(std::chrono::microseconds(100));
+   //}
+   #ifdef ROS_FOUND
+   ros::spin();
+   #elif ROS2_FOUND
+   rclcpp::spin(node);  // should not return
+    rclcpp::shutdown();
+    #endif
    demo_ptr->Stop();
    return 0;
  }
